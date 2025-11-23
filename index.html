@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Generatore Casuale di Pizza Rio</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background-color: #f4f4f9; color: #333; padding: 20px; }
+        .container { max-width: 700px; margin: 0 auto; background-color: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
+        h1 { color: #cc0000; text-align: center; margin-bottom: 20px; }
+        .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+        .control-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        select, input[type="number"], button { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; }
+        button { background-color: #4CAF50; color: white; border: none; cursor: pointer; font-size: 16px; margin-top: 10px; transition: background-color 0.3s; }
+        button:hover { background-color: #45a049; }
+        #exclusions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-height: 150px; overflow-y: auto; padding: 10px; border: 1px solid #eee; border-radius: 5px; }
+        .result { border: 2px dashed #cc0000; padding: 20px; border-radius: 10px; background-color: #fff0f0; }
+        .result h2 { color: #cc0000; margin-top: 0; }
+        .ingredient-list { list-style: none; padding: 0; }
+        .ingredient-list li { margin-bottom: 5px; padding-left: 20px; position: relative; }
+        .ingredient-list li::before { content: '•'; color: #cc0000; font-weight: bold; display: inline-block; width: 1em; margin-left: -1em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✨ Generatore Casuale di Pizza Rio ✨</h1>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="base-type">Base (Rossa / Bianca):</label>
+                <select id="base-type">
+                    <option value="both">Casuale</option>
+                    <option value="red">Rossa</option>
+                    <option value="white">Bianca</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="num-ingredients">Numero di Ingredienti (2-6):</label>
+                <input type="number" id="num-ingredients" value="4" min="2" max="6">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label>Escludi Ingredienti (Seleziona per escludere):</label>
+            <div id="exclusions">
+                </div>
+        </div>
+
+        <button onclick="generatePizza()">Genera la Mia Pizza</button>
+
+        <hr>
+
+        <div class="result" id="pizza-result">
+            <h2>La Tua Pizza Casuale:</h2>
+            <p>Seleziona le opzioni e clicca su "Genera la Mia Pizza" per iniziare.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
